@@ -39,4 +39,18 @@ This lab provides a simple environment to experiment with IPv6 in VNETs. It is w
 
   `az deployment group create --name ipv6depl --resource-group ipv6 --template-file ipv6networkdeploy.bicep`
 
+**Testing**
+Access the Load Balancer's Public IP address over IPv4 and IPv4:
+`curl LBIPv4:80`
+`curl [LBIPv6]:80`  :point_left: enclose the IPv6 address in square brackets!
+
+The response should read BeVM1 or BeVM2 in both cases. 
+:point_right: accessing the IPv6 endpoint requires that the client has an IPv6 public address. This does not work from Cloud Shell.
+
+Look at each VMs Effective Routes:
+`az network nic show-effective-route-table -g ipv6 -n BeVM1-nic --output table`
+
+Observe both IPv4 and IPv6 routes to peered VNETs and Internet are present.
+
+
 
