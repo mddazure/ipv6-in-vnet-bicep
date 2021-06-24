@@ -41,11 +41,17 @@ This lab provides a simple environment to experiment with IPv6 in VNETs. It is w
 
 **Testing**
 Access the Load Balancer's Public IP address over IPv4 and IPv4:
-`curl LBIPv4:80`
-`curl [LBIPv6]:80`  :point_left: enclose the IPv6 address in square brackets!
+`curl lbPubIpV4:80`
+`curl [lbPubIpV6]:80`  :point_left: enclose the IPv6 address in square brackets!
 
-The response should read BeVM1 or BeVM2 in both cases. 
+The response should read "BeVM1" or "BeVM2" in both cases. 
 :point_right: accessing the IPv6 endpoint requires that the client has an IPv6 public address. This does not work from Cloud Shell.
+
+Access Spoke1VM's instance level PIP over IPv4 and IPv4:
+`curl instancePubIpV4-1:80`
+`curl [instancePubIpv6-1]:80`  :point_left: enclose the IPv6 address in square brackets!
+
+The response should read "spoke1VM".
 
 Look at each VMs Effective Routes:
 `az network nic show-effective-route-table -g ipv6 -n BeVM1-nic --output table`
