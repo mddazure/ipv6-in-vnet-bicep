@@ -64,7 +64,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-12-01' = {
         publisher: imagePublisher
         offer: imageOffer
         sku: imageSku
-
+        version: 'latest'
       }
       osDisk: {
         createOption: 'FromImage'      

@@ -372,6 +372,9 @@ resource hubspoke2 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@202
 //VMs
 module BeVM1mod 'vmnichub.bicep' = {
   name: 'BeVM1-modname'
+  dependsOn:[
+    dsHub
+  ]
   params: {
     vmName: 'BeVM1'
     adminUser: adminUsername
@@ -384,6 +387,9 @@ module BeVM1mod 'vmnichub.bicep' = {
 }
 module BeVM2mod 'vmnichub.bicep' = {
   name: 'BeVM2-modname'
+  dependsOn:[
+    dsHub
+  ]
   params: {
     vmName: 'BeVM2'
     adminUser: adminUsername
@@ -397,6 +403,9 @@ module BeVM2mod 'vmnichub.bicep' = {
 
 module spoke1VM 'vmnicspokes.bicep' = {
   name: 'spoke1VM'
+  dependsOn:[
+    dsSpoke1
+  ]
   params: {
     vmName: 'spoke1VM'
     adminUser: adminUsername
@@ -409,6 +418,9 @@ module spoke1VM 'vmnicspokes.bicep' = {
 }
 module spoke2VM 'vmnicspokes.bicep' = {
   name: 'spoke2VM'
+  dependsOn:[
+    dsSpoke2
+  ]
   params: {
     vmName: 'spoke2VM'
     adminUser: adminUsername
@@ -423,6 +435,9 @@ module spoke2VM 'vmnicspokes.bicep' = {
 //Bastion
 resource hubBastion 'Microsoft.Network/bastionHosts@2020-11-01' = {
   name: 'hubBastion'
+  dependsOn:[
+    dsHub
+  ]
   location: location
   properties: {
     ipConfigurations: [

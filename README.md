@@ -1,4 +1,4 @@
-# Lab: Dual stack IPv4/IPv6 VNET topology 
+# Dual stack IPv4/IPv6 VNET topology 
 
 This lab provides a simple environment to experiment with IPv6 in VNETs. It is written in Bicep :muscle:.
 
