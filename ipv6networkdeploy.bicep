@@ -433,6 +433,7 @@ module spoke2VM 'vmnicspokes.bicep' = {
 }
 
 //Bastion
+/*
 resource hubBastion 'Microsoft.Network/bastionHosts@2020-11-01' = {
   name: 'hubBastion'
   dependsOn:[
@@ -455,6 +456,7 @@ resource hubBastion 'Microsoft.Network/bastionHosts@2020-11-01' = {
     ]
   }
 }
+*/
 
 //Output
 output lbPubIpV4 string = lbPubIpV4.properties.ipAddress
