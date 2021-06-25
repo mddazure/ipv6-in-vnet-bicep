@@ -432,7 +432,7 @@ module spoke2VM 'vmnicspokes.bicep' = {
   } 
 }
 
-//Bastion
+//Bastion - remove comments to deploy Bastion, takes a while
 /*
 resource hubBastion 'Microsoft.Network/bastionHosts@2020-11-01' = {
   name: 'hubBastion'
